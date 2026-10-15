@@ -2,8 +2,8 @@
 
 # SPDX-License-Identifier: MIT
 cask "ultraconvert" do
-  version "1.8.3"
-  sha256 "6cd25bd5a51d0192300cf849abcea71949002b82068456b16d51696339d8ffda"
+  version "1.9.0"
+  sha256 "bb6c2c725c3d05bb1bd7e358f5312715505d72183715924ac967a86ed488a355"
 
   url "https://github.com/samuel-zhang01/UltraConvert/releases/download/v#{version}/UltraConvert-#{version}-update-macos-universal.zip"
   name "UltraConvert"
@@ -22,16 +22,20 @@ cask "ultraconvert" do
 
   app "UltraConvert.app"
 
-  uninstall quit:   "local.ultraconvert",
-            script: {
-              executable: "#{HOMEBREW_PREFIX}/bin/ultraconvert-remove-finder-actions",
-              args:       ["--app", "#{appdir}/UltraConvert.app"],
-              sudo:       false,
-            }
+  uninstall quit: "local.ultraconvert"
+
+  # Uninstall scripts also run during upgrades. Finder actions must survive
+  # when the user has disabled automatic registration in the app.
+  zap script: {
+    executable: "#{HOMEBREW_PREFIX}/bin/ultraconvert-remove-finder-actions",
+    args:       ["--app", "#{appdir}/UltraConvert.app", "--confirm-removal"],
+    sudo:       false,
+  }
 
   caveats <<~EOS
     Open UltraConvert once to register Finder actions, then enable them in macOS Settings.
     Settings and folder rules are retained by normal uninstall and upgrades.
+    Use uninstall --zap to also remove this app's owned Finder actions.
     App updates use Check for Updates; use brew upgrade for the conversion runtime.
   EOS
 end

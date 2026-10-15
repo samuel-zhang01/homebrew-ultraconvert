@@ -6,8 +6,8 @@ class UltraconvertRuntime < Formula
 
   desc "Local conversion engines and Python runtime for UltraConvert"
   homepage "https://github.com/samuel-zhang01/UltraConvert"
-  url "https://github.com/samuel-zhang01/UltraConvert/releases/download/v1.8.3/UltraConvert-1.8.3-source.tar.gz"
-  sha256 "dc644ff92695aa5532adc5a012f0282f6a5b33772451e44ccb3cdf28c7f1772f"
+  url "https://github.com/samuel-zhang01/UltraConvert/releases/download/v1.9.0/UltraConvert-1.9.0-source.tar.gz"
+  sha256 "28d52c1f5ede4d1a270e6f80948ec1f507cc3ffcd586cb065675d88b3bbcb2d2"
   license "MIT"
 
   depends_on "ffmpeg-full"
