@@ -2,8 +2,8 @@
 
 # SPDX-License-Identifier: MIT
 cask "ultraconvert" do
-  version "1.9.0"
-  sha256 "bb6c2c725c3d05bb1bd7e358f5312715505d72183715924ac967a86ed488a355"
+  version "1.9.2"
+  sha256 "e235ee84d7feefbdb5f7f75c42ba2dacfd9c9f4b503d6e4a0f7085ab856df042"
 
   url "https://github.com/samuel-zhang01/UltraConvert/releases/download/v#{version}/UltraConvert-#{version}-update-macos-universal.zip"
   name "UltraConvert"
